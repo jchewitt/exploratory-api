@@ -38,6 +38,10 @@ router.post('/login', function(req, res) {
 
 });
 
+router.get('/check', VerifyToken, function(req, res) {
+   res.status(200);
+});
+
 router.get('/logout', function(req, res) {
     res.status(200).send({ auth: false, token: null });
 });

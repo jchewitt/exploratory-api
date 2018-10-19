@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- 8.5.0
+script:
+#- "npm run lint"
+#- "npm run test"
+#safelist
+branches:
+  only:
+  - dev
+install:
+  - "npm ci"
+cache:
+  directories:
+  - "$HOME/.npm"
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU_API_KEY
+  app: angular-exploratory-api
+  on:
+    repo: jchewitt/exploratory-api
